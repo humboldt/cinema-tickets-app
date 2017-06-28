@@ -43,6 +43,8 @@ gem 'devise'
 gem 'toastr-rails'
 # For bootstrap
 gem 'bootstrap'
+# For users' roles
+gem 'cancancan'
 # -- My -- end ----------------------------
 
 group :development, :test do
