@@ -10,15 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628215320) do
+ActiveRecord::Schema.define(version: 20170628220836) do
 
   create_table "cinemas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "address"
+    t.string   "name",       default: "", null: false
+    t.string   "address",    default: "", null: false
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["user_id"], name: "index_cinemas_on_user_id", using: :btree
+  end
+
+  create_table "halls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       default: "", null: false
+    t.integer  "cinema_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["cinema_id"], name: "index_halls_on_cinema_id", using: :btree
+  end
+
+  create_table "movies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                      default: "", null: false
+    t.text     "picture_url", limit: 65535
+    t.text     "description", limit: 65535,              null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  create_table "sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "dates",      default: "", null: false
+    t.integer  "hall_id"
+    t.integer  "movie_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["hall_id"], name: "index_sessions_on_hall_id", using: :btree
+    t.index ["movie_id"], name: "index_sessions_on_movie_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -43,4 +69,7 @@ ActiveRecord::Schema.define(version: 20170628215320) do
   end
 
   add_foreign_key "cinemas", "users"
+  add_foreign_key "halls", "cinemas"
+  add_foreign_key "sessions", "halls"
+  add_foreign_key "sessions", "movies"
 end
