@@ -35,8 +35,19 @@
         
         <div class="collapse navbar-collapse" id="navbarsExampleContainer">
           <ul class="navbar-nav mr-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item active" style="color:white">
+                <% if current_user.admin_role? %>
+                  Admin
+                <% elsif current_user.owner_role? %>
+                  Cinema owner
+                <% else %>
+                  User
+                <% end %>
+              </li>     
+            <% end %>
           </ul>
-          
+
           <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li class="nav-item active">
