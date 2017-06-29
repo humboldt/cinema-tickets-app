@@ -1,3 +1,3 @@
 class Movie < ApplicationRecord
-  has_many :sessions
+  has_many :movie_sessions
 end

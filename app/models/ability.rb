@@ -39,12 +39,15 @@ class Ability
       #can :manage, Cinema
       #can :manage, Hall
       #can :manage, Movie
+      # can't manage Session
     end
     
-    if user.owner_role?
-      #if user.cinemas.find_by_id(cinema_id)
-        
-      #end
+    if user.owner_role? && user.approved?
+      if user.cinemas.find_by_id(cinema_id)
+        can :manage, Cinema
+        can :manage, Hall
+        can :manage, Session
+      end
     end
     
     if user.user_role?

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dates:</strong>
+  <%= @movie_session.dates %>
+</p>
+
+<p>
+  <strong>Movie:</strong>
+  <%= @movie_session.movie %>
+</p>
+
+<%= link_to 'Edit', edit_movie_session_path(@movie_session) %> |
+<%= link_to 'Back', movie_sessions_path %>

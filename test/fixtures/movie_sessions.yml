@@ -2,10 +2,8 @@
 
 one:
   dates: MyString
-  hall: one
   movie: one
 
 two:
   dates: MyString
-  hall: two
   movie: two
