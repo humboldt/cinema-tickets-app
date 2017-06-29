@@ -2,7 +2,7 @@
   <h3 class="text-center">Unapproved owners' accounts</h3>
   <div class="list-group projects-list text-center" id="unapproved-owners-home">
     <% @users.where(approved: false, owner_role: true).each do |user| %>
-      <%= link_to(user.name, user, :class => "list-group-item") %>
+      <%= link_to(user.name, edit_user_path(user), :class => "list-group-item") %>
     <% end %>
   </div>
 <% end %>
