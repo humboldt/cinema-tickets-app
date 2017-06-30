@@ -15,7 +15,12 @@
                 </td>
                 <td>
                   <%= movie.description %>
-                </td>              
+                </td>
+                <% if can? :edit, Movie %>
+                  <td>
+                    <%= link_to 'Edit movie', edit_movie_path(movie) %>
+                  </td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>
@@ -25,7 +30,7 @@
       <% end %>
     </div>
   </div>
-  <% if can? :manage, Movie %>
+  <% if can? :new, Movie %>
     <%= link_to 'Add new movie', new_movie_path %>
   <% end %>
 </div>
