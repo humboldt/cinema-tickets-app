@@ -1,4 +1,4 @@
-<%= simple_form_for(@movie_session) do |f| %>
+<%= simple_form_for [@cinema, @hall, movie_session] do |f| %>
   <%= f.error_notification %>
   <% if movie_session.errors.any? %>
     <div id="error_explanation">
@@ -15,7 +15,6 @@
   <div class="form-inputs">
     <%= f.input :dates %>
     <%= f.association :movie %>
-    <%= f.association :hall %>
   </div>
 
   <div class="form-actions">

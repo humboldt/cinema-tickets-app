@@ -16,9 +16,9 @@ class MovieSessionsController < ApplicationController
   end
 
   def create
-    @movie_session = MovieSession.new(movie_session_params)
+    @movie_session = MovieSession.new(movie_session_params.merge(hall: @hall))
     if @movie_session.save
-      redirect_to @movie_session, 
+      redirect_to cinema_hall_path(@cinema, @hall), 
         notice: 'Movie session was successfully created.'
     else
       render :new
@@ -27,7 +27,7 @@ class MovieSessionsController < ApplicationController
 
   def update
     if @movie_session.update_attributes(movie_session_params)
-      redirect_to @movie_session, 
+      redirect_to cinema_hall_path(@cinema, @hall), 
         notice: 'Movie session was successfully updated.'
     else
       render :edit
@@ -44,7 +44,7 @@ class MovieSessionsController < ApplicationController
   private
   
   def movie_session_params
-    params.require(:movie_session).permit(:dates, :movie_id, :hall_id)
+    params.require(:movie_session).permit(:dates, :movie_id)
   end
   
 end
