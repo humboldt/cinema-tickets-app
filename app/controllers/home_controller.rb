@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   def index
     @users = User.all
     @movies = Movie.all
+    @movie_sessions = MovieSession.all
   end
   
 end

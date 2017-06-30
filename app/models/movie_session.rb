@@ -1,3 +1,4 @@
 class MovieSession < ApplicationRecord
-  has_one :movie
+  belongs_to :movie
+  belongs_to :hall
 end

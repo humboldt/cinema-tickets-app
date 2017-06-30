@@ -1,9 +1,21 @@
 <%= simple_form_for(@movie_session) do |f| %>
   <%= f.error_notification %>
+  <% if movie_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie_session.errors.count, "error") %> prohibited this movie_session from being saved:</h2>
+
+      <ul>
+      <% movie_session.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="form-inputs">
     <%= f.input :dates %>
     <%= f.association :movie %>
+    <%= f.association :hall %>
   </div>
 
   <div class="form-actions">

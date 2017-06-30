@@ -34,12 +34,8 @@ class Ability
     can :read, :all
     
     if user.admin_role?
-      can :manage, :all
-      #can :manage, User
-      #can :manage, Cinema
-      #can :manage, Hall
-      #can :manage, Movie
-      # can't manage Session
+      can [:edit, :update], User
+      can :manage, Movie
     end
     
     if user.owner_role? && user.approved?
