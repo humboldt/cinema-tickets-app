@@ -39,6 +39,7 @@ class Ability
     end
     
     if user.owner_role? && user.approved?
+      can [:new, :create], Cinema
       if user.cinemas.find_by_id(cinema_id)
         can :manage, Cinema
         can :manage, Hall

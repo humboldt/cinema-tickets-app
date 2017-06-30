@@ -14,7 +14,7 @@ class CinemasController < ApplicationController
   end
 
   def create
-    @cinema = Cinema.new(cinema_params)
+    @cinema = Cinema.new(cinema_params.merge(user: current_user))
     if @cinema.save
       redirect_to @cinema, notice: 'Cinema was successfully created.'
     else
@@ -40,7 +40,7 @@ class CinemasController < ApplicationController
   private
 
   def cinema_params
-    params.require(:cinema).permit(:name, :address, :user_id)
+    params.require(:cinema).permit(:name, :address)
   end
   
 end
