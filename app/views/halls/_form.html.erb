@@ -1,7 +1,8 @@
-<%= simple_form_for(hall) do |f| %>
+<%= simple_form_for [cinema, hall] do |f| %>
   <% if hall.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(hall.errors.count, "error") %> prohibited this hall from being saved:</h2>
+      <h2><%= pluralize(hall.errors.count, "error") %> 
+      prohibited this hall from being saved:</h2>
 
       <ul>
       <% hall.errors.full_messages.each do |message| %>
@@ -11,9 +12,7 @@
     </div>
   <% end %>
 
-    <%= f.input :name %>
-    <%= f.association :cinema %>
+  <%= f.input :name %>
 
-    <%= f.button :submit %>
-    
+  <%= f.button :submit %>
 <% end %>

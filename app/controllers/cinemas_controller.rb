@@ -23,7 +23,7 @@ class CinemasController < ApplicationController
   end
 
   def update
-    if @cinema.update_params(cinema_params)
+    if @cinema.update_attributes(cinema_params)
       redirect_to @cinema, notice: 'Cinema was successfully updated.'
     else
       render :edit

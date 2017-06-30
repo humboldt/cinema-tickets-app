@@ -7,8 +7,8 @@
 
 <p>
   <strong>Cinema:</strong>
-  <%= @hall.cinema %>
+  <%= @hall.cinema.name %>
 </p>
 
-<%= link_to 'Edit', edit_hall_path(@hall) %> |
-<%= link_to 'Back', halls_path %>
+<%= link_to 'Edit', edit_cinema_hall_path(@cinema, @hall) %> |
+<%= link_to 'Back', @cinema %>

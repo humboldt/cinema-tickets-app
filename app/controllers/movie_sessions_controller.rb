@@ -1,6 +1,8 @@
 class MovieSessionsController < ApplicationController
-  load_and_authorize_resource
-
+  load_and_authorize_resource :cinema
+  load_and_authorize_resource :hall, through: :cinema
+  load_and_authorize_resource :movie_session, through: :hall
+  
   def index
   end
 
@@ -24,7 +26,7 @@ class MovieSessionsController < ApplicationController
   end
 
   def update
-    if @movie_session.update_params(movie_session_params)
+    if @movie_session.update_attributes(movie_session_params)
       redirect_to @movie_session, 
         notice: 'Movie session was successfully updated.'
     else

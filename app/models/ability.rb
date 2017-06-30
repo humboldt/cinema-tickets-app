@@ -1,7 +1,7 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user, cinema_id)
+  def initialize(user, cinema)
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
@@ -40,7 +40,7 @@ class Ability
     
     if user.owner_role? && user.approved?
       can [:new, :create], Cinema
-      if user.cinemas.find_by_id(cinema_id)
+      if user.cinemas.include? cinema
         can :manage, Cinema
         can :manage, Hall
         can :manage, MovieSession

@@ -15,5 +15,27 @@
   <%= @cinema.user.name %>
 </p>
 
+<% unless @cinema.halls.empty? %>
+  <h3 class="text-center">This Cinema's Halls!</h3>
+  <table class="table table-striped table-hover">
+    <tbody>
+      <% @cinema.halls.each do |hall| %>
+        <tr>
+          <td>
+            <%= link_to hall.name, cinema_hall_path(@cinema, hall) %>
+          </td>
+          <td>
+            <%= link_to 'Edit hall', edit_cinema_hall_path(@cinema, hall) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h3 class="text-center">No halls!</h3>
+<% end %>
+<%= link_to "Add new hall", new_cinema_hall_path(@cinema) %>
+
+<br>
 <%= link_to 'Edit', edit_cinema_path(@cinema) %> |
-<%= link_to 'Back', cinemas_path %>
+<%= link_to 'Back', root_path %>
