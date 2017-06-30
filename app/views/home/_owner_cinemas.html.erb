@@ -16,6 +16,8 @@
     </div>
     <% if can? :new, Cinema %>
       <%= link_to 'Add new cinema', new_cinema_path %>
+    <% elsif !current_user.approved? %>
+      <p id="unapproved-user-message">Awaiting your account approval from an administrator.</p>
     <% end %>
   </div>
 <% end %>
