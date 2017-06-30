@@ -1,4 +1,4 @@
-<%= form_for(movie) do |f| %>
+<%= simple_form_for(movie) do |f| %>
   <% if movie.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
@@ -10,23 +10,11 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.input :title %>
+  <%= f.input :picture_url %>
+  <%= f.input :description %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :picture_url %>
-    <%= f.text_area :picture_url %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit %>
+  
 <% end %>
