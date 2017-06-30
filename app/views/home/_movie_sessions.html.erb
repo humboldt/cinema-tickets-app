@@ -5,25 +5,27 @@
         <h3 class="text-center">Sessions!</h3>
         <table class="table table-striped table-hover">
           <tbody>
-            <% @movie_sessions.each do |session| %>
+            <% @movie_sessions.each do |movie_session| %>
               <tr>
                 <td>
-                  <%= session.dates %>
+                  <%= link_to movie_session.dates, 
+                    cinema_hall_movie_session_path(movie_session.hall.cinema,
+                    movie_session.hall, movie_session) %>
                 </td>
                 <td>
-                  <%= session.hall.cinema.name %>
+                  <%= movie_session.hall.cinema.name %>
                 </td>
                 <td>
-                  <%= session.hall.name %>
+                  <%= movie_session.hall.name %>
                 </td>
                 <td>
-                  <%= image_tag(session.movie.picture_url, class: "movie-logo") %>
+                  <%= image_tag(movie_session.movie.picture_url, class: "movie-logo") %>
                 </td>
                 <td>
-                  <%= session.movie.title %>
+                  <%= movie_session.movie.title %>
                 </td>
                 <td>
-                  <%= session.movie.description %>
+                  <%= movie_session.movie.description %>
                 </td>              
               </tr>
             <% end %>
