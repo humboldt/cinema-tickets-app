@@ -43,7 +43,7 @@ class Ability
       if user.cinemas.find_by_id(cinema_id)
         can :manage, Cinema
         can :manage, Hall
-        can :manage, Session
+        can :manage, MovieSession
       end
     end
     

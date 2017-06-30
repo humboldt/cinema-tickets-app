@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :movie_sessions
   resources :movies
-  resources :halls
-  resources :cinemas
+  resources :cinemas do
+    resources :halls do
+      resources :movie_sessions
+    end
+  end
   get 'home/index'
   
   devise_for :users, controllers: {

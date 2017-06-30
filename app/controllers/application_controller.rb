@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
   
   def current_ability
-    @current_ability ||= Ability.new(current_user, params[:cinema_id])
+    @current_ability ||= Ability.new(current_user, params[:id])
   end
   
 end
