@@ -10,5 +10,10 @@
   <%= @movie_session.movie.title %>
 </p>
 
+<% (1..@movie_session.hall.seats_quantity).each do |seat_number| %>
+  <div class="seat"><%= seat_number %></div>
+<% end %>
+<div></div>
+
 <%= link_to 'Edit', edit_cinema_hall_movie_session_path(@cinema, @hall, @movie_session) %> |
 <%= link_to 'Back', root_path %>
