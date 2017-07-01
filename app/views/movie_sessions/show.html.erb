@@ -12,12 +12,17 @@
 
 <% (1..@movie_session.hall.seats_quantity).each do |seat_number| %>
   <% if @movie_session.seats["#{seat_number}"] == "taken" %>
-    <a href="?seat=<%= seat_number %>"><div class="seat seat-taken"><%= seat_number %></div></a>
+    <% seat_status_class = 'seat-taken' %>
   <% elsif @movie_session.seats["#{seat_number}"] == "reserved" %>
-    <a href="?seat=<%= seat_number %>"><div class="seat seat-reserved"><%= seat_number %></div></a>
+    <% seat_status_class = 'seat-reserved' %>
   <% else %>
-    <a href="?seat=<%= seat_number %>"><div class="seat"><%= seat_number %></div></a>
+    <% seat_status_class = 'seat-available' %>
   <% end %>
+  <a href="?seat=<%= seat_number %>">
+    <div class="seat <%= seat_status_class %>">
+      <%= seat_number %>
+    </div>
+  </a>
 <% end %>
 
 <% if params[:seat] %>
