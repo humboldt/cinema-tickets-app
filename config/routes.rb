@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   resources :movies
   resources :cinemas do
     resources :halls do
-      resources :movie_sessions
+      resources :movie_sessions do
+        patch 'buy_ticket', to: 'movie_sessions#buy_ticket'
+      end
     end
   end
-  get 'home/index'
   
   devise_for :users, controllers: {
     sessions: 'users/sessions',

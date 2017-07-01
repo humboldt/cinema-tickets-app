@@ -11,14 +11,21 @@
 </p>
 
 <% (1..@movie_session.hall.seats_quantity).each do |seat_number| %>
-  <a href="?seat=<%= seat_number %>"><div class="seat"><%= seat_number %></div></a>
+  <% if @movie_session.seats["#{seat_number}"] == "taken" %>
+    <a href="?seat=<%= seat_number %>"><div class="seat seat-taken"><%= seat_number %></div></a>
+  <% elsif @movie_session.seats["#{seat_number}"] == "reserved" %>
+    <a href="?seat=<%= seat_number %>"><div class="seat seat-reserved"><%= seat_number %></div></a>
+  <% else %>
+    <a href="?seat=<%= seat_number %>"><div class="seat"><%= seat_number %></div></a>
+  <% end %>
 <% end %>
 
 <% if params[:seat] %>
   <div class="panel">
     <p><strong>seat: </strong><%= params[:seat] %></p>
     <p><strong>price: </strong><%= humanized_money_with_symbol @movie_session.seat_price %></p>
-    <button>Buy!</button>
+    <button class="btn btn-primary">Buy!</button>
+    <%= button_to "Buy!", cinema_hall_movie_session_buy_ticket_url(@cinema, @hall, @movie_session, :seat => params[:seat]), :method => :patch %>
   </div>
 <% end %>
 
