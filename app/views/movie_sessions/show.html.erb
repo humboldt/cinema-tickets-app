@@ -17,7 +17,7 @@
 <% if params[:seat] %>
   <div class="panel">
     <p><strong>seat: </strong><%= params[:seat] %></p>
-    <p><strong>price: </strong>10$</p>
+    <p><strong>price: </strong><%= humanized_money_with_symbol @movie_session.seat_price %></p>
     <button>Buy!</button>
   </div>
 <% end %>

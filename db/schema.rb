@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170701141419) do
+ActiveRecord::Schema.define(version: 20170701162831) do
 
   create_table "cinemas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       default: "", null: false
@@ -31,11 +31,14 @@ ActiveRecord::Schema.define(version: 20170701141419) do
   end
 
   create_table "movie_sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "dates",      null: false
+    t.string   "dates",                                             null: false
     t.integer  "movie_id"
     t.integer  "hall_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.text     "seats",               limit: 65535
+    t.integer  "seat_price_cents",                  default: 0,     null: false
+    t.string   "seat_price_currency",               default: "USD", null: false
     t.index ["hall_id"], name: "index_movie_sessions_on_hall_id", using: :btree
     t.index ["movie_id"], name: "index_movie_sessions_on_movie_id", using: :btree
   end

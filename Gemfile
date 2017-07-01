@@ -48,6 +48,8 @@ gem 'bootstrap'
 gem 'cancancan'
 # For bootstrap forms
 gem 'simple_form', '~> 3.5'
+# For money values
+gem 'money-rails', '~> 1.8'
 # -- My -- end ----------------------------
 
 group :development, :test do
