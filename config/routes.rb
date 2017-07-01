@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :cinemas do
     resources :halls do
       resources :movie_sessions do
-        patch 'buy_ticket', to: 'movie_sessions#buy_ticket'
+        patch 'buy_ticket', to: 'tickets#buy_ticket'
       end
     end
   end
