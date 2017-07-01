@@ -1,0 +1,26 @@
+<table frame="box" rules="none">
+  <tr>
+    <td>
+      <%= wicked_pdf_image_tag @movie_session.movie.picture_url, 
+        style: "width: 150px; height: 230px; padding: 2px;" %>
+    </td>
+    <td>
+      <p>See you at</p>
+      <p><h3><strong><%= @movie_session.movie.title %></strong></h3></p>
+      <p>on <strong><%= @movie_session.dates %></strong></p>
+      <p>at <strong><%= @movie_session.hall.cinema.name %>, <%= @movie_session.hall.name %></strong></p>
+      <p>Address: <strong><%= @movie_session.hall.cinema.address %></strong></p>
+      <p>Price: <strong><%= humanized_money_with_symbol @movie_session.seat_price %></strong></p>
+    </td>
+    <td>
+      <%= wicked_pdf_image_tag "qrcode.png", style: "width: 230px; height:230px;" %>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan=3>
+      <hr>
+      <p style="color: gray;">please, print this ticket and provide it at the entrance to the hall</p>
+      <hr>
+    </td>
+  </tr>
+</table>

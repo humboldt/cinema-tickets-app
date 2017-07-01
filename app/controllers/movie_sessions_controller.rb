@@ -46,8 +46,10 @@ class MovieSessionsController < ApplicationController
   def buy_ticket
     @movie_session = MovieSession.find_by_id(params[:movie_session_id])
     @movie_session.update(seats: @movie_session.seats.merge!({"#{params[:seat]}" => "taken"}))
-    redirect_to cinema_hall_movie_session_path(@cinema, @hall, @movie_session), 
-      notice: 'You have successfully bought a ticket!'
+    render pdf:       "ticket",
+           template:  "ticket.html.erb"
+    #redirect_to cinema_hall_movie_session_path(@cinema, @hall, @movie_session), 
+    #  notice: 'You have successfully bought a ticket!'
   end
 
   

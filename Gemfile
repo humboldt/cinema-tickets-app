@@ -50,6 +50,9 @@ gem 'cancancan'
 gem 'simple_form', '~> 3.5'
 # For money values
 gem 'money-rails', '~> 1.8'
+# For pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # -- My -- end ----------------------------
 
 group :development, :test do
