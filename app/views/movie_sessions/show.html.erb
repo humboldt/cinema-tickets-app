@@ -11,9 +11,17 @@
 </p>
 
 <% (1..@movie_session.hall.seats_quantity).each do |seat_number| %>
-  <div class="seat"><%= seat_number %></div>
+  <a href="?seat=<%= seat_number %>"><div class="seat"><%= seat_number %></div></a>
 <% end %>
-<div></div>
 
+<% if params[:seat] %>
+  <div class="panel">
+    <p><strong>seat: </strong><%= params[:seat] %></p>
+    <p><strong>price: </strong>10$</p>
+    <button>Buy!</button>
+  </div>
+<% end %>
+
+<br><br>
 <%= link_to 'Edit', edit_cinema_hall_movie_session_path(@cinema, @hall, @movie_session) %> |
 <%= link_to 'Back', root_path %>
