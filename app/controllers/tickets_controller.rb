@@ -2,6 +2,7 @@ class TicketsController < ApplicationController
   load_and_authorize_resource :cinema
   load_and_authorize_resource :hall, through: :cinema
   load_and_authorize_resource :movie_session, through: :hall
+  authorize_resource :class => false
   
   def reserve_ticket
   end
