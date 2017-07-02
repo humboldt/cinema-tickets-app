@@ -18,14 +18,16 @@
   <% else %>
     <% seat_status_class = 'seat-available' %>
   <% end %>
-  <a href="?seat=<%= seat_number %>"><div class="seat <%= seat_status_class %>"><%= seat_number %></div></a>
+  
+  
+  <%= link_to( (raw ("<div class='seat #{seat_status_class}'>#{seat_number}</div>")), cinema_hall_movie_session_reserve_ticket_url(@cinema, @hall, @movie_session, :seat => seat_number), :method => :patch) %>
 <% end %>
 
 <% if params[:seat] %>
   <div class="panel">
     <% if @movie_session.seats[params[:seat]] == "taken" %>
       <p class="seat-taken-message">This seat is already taken!</p>
-    <% elsif @movie_session.seats[params[:seat]] == "reserved" %>
+    <% elsif @movie_session.seats[params[:seat]] == "reserved" && @movie_session.reserved_seats[params[:seat]] != current_user.id %>
       <p class="seat-reserved-message">This seat is currently reserved! But it might be available shortly...</p>
     <% else %>
       <p><strong>seat: </strong><%= params[:seat] %></p>

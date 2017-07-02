@@ -48,7 +48,7 @@ class Ability
     end
     
     if user.user_role?
-      can :buy_ticket, :ticket
+      can [:buy_ticket, :reserve_ticket], :ticket
     end
     
   end

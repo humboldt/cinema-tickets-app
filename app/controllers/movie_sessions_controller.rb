@@ -8,6 +8,7 @@ class MovieSessionsController < ApplicationController
   end
 
   def show
+    params[:seat] = params[:seat]
   end
 
   def new

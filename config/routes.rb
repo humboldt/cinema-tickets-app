@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :halls do
       resources :movie_sessions do
         patch 'buy_ticket', to: 'tickets#buy_ticket'
+        patch 'reserve_ticket', to: 'tickets#reserve_ticket'
       end
     end
   end
