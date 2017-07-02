@@ -6,6 +6,8 @@ class TicketsController < ApplicationController
   
   def reserve_ticket
     if seat_available?
+      ReservationTimerJob.set(wait: 30.seconds).perform_later(
+        @movie_session, params[:seat])
       @movie_session.update(
         seats: @movie_session.seats.merge!( {params[:seat] => "reserved"} ),
         reserved_seats: @movie_session.reserved_seats.merge!( 
@@ -25,7 +27,7 @@ class TicketsController < ApplicationController
       render pdf: "ticket", template: "ticket.html.erb"
     else
       redirect_to cinema_hall_movie_session_url(@cinema, @hall, @movie_session),
-        warning: 'This seat is already taken!'
+        alert: 'Your reservation has expired.'
     end
     
   end
