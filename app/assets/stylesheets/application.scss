@@ -23,3 +23,9 @@
   border: 1px solid #ccc;
   border-radius: 3px;
 }
+
+@media screen and (max-width: 769px) {
+    .container {
+        width: 100%;
+    }
+}

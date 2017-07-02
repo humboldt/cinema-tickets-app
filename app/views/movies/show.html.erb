@@ -15,5 +15,6 @@
   <%= @movie.description %>
 </p>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
+
+<%= link_to 'Edit', edit_movie_path(@movie) if can? :edit, @movie %><br>
 <%= link_to 'Back', movies_path %>

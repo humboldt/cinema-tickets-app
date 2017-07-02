@@ -8,6 +8,7 @@
       'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 
       'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
@@ -38,11 +39,12 @@
             <% if user_signed_in? %>
               <li class="nav-item active" style="color:white">
                 <% if current_user.admin_role? %>
-                  Admin
+                  <%= link_to('Admin', current_user, :class => "nav-link") %>
                 <% elsif current_user.owner_role? %>
-                  Cinema owner
+                  <%= link_to('Cinema owner', current_user,
+                    :class => "nav-link") %>
                 <% else %>
-                  User
+                  <%= link_to('User', current_user, :class => "nav-link") %>
                 <% end %>
               </li>     
             <% end %>

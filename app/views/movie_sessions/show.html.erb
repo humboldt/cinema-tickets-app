@@ -38,5 +38,7 @@
 <% end %>
 
 <br><br>
-<%= link_to 'Edit', edit_cinema_hall_movie_session_path(@cinema, @hall, @movie_session) %> |
+<%= link_to 'Edit', 
+  edit_cinema_hall_movie_session_path(@cinema, @hall, @movie_session) if 
+  can? :edit, @movie_session %><br>
 <%= link_to 'Back', root_path %>

@@ -17,14 +17,15 @@
       <% @hall.movie_sessions.each do |movie_session| %>
         <tr>
           <td>
-            <%= movie_session.movie.title %>
+            <%= link_to movie_session.movie.title, 
+              cinema_hall_movie_session_path(@cinema, @hall, movie_session) %>
           </td>          
           <td>
             <%= movie_session.dates %>
           </td>
           <td>
             <%= link_to 'Edit session', edit_cinema_hall_movie_session_path(
-              @cinema, @hall, movie_session) %>
+              @cinema, @hall, movie_session) if can? :edit, movie_session %>
           </td>
         </tr>
       <% end %>
@@ -33,8 +34,11 @@
 <% else %>
   <h3 class="text-center">No sessions!</h3>
 <% end %>
-<%= link_to "Add new session", new_cinema_hall_movie_session_path(@cinema, @hall) %>
-<br>
+<%= link_to "Add new session", 
+  new_cinema_hall_movie_session_path(@cinema, @hall) if 
+  can? :new, MovieSession %>
 
-<%= link_to 'Edit', edit_cinema_hall_path(@cinema, @hall) %> |
+<br><br>
+<%= link_to 'Edit', edit_cinema_hall_path(@cinema, @hall) if 
+  can? :edit, @hall %><br>
 <%= link_to 'Back', @cinema %>
