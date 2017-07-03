@@ -55,6 +55,8 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 # For icons
 gem "font-awesome-rails"
+# For bootstrap exception
+gem 'rails-assets-tether'
 # -- My -- end ----------------------------
 
 group :development, :test do
