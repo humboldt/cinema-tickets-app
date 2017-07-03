@@ -46,7 +46,7 @@ class MovieSessionsController < ApplicationController
   private
   
   def movie_session_params
-    params.require(:movie_session).permit(:dates, :movie_id)
+    params.require(:movie_session).permit(:dates, :movie_id, :seat_price)
   end
   
 end
