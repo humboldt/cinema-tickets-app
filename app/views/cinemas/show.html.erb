@@ -25,8 +25,8 @@
             <%= link_to hall.name, cinema_hall_path(@cinema, hall) %>
           </td>
           <td>
-            <%= link_to 'Edit hall', edit_cinema_hall_path(@cinema, hall) if 
-              can? :edit, Hall %>
+            <%= link_to (fa_icon "pencil", text: 'Edit hall'),
+              edit_cinema_hall_path(@cinema, hall) if can? :edit, Hall %>
           </td>
         </tr>
       <% end %>
@@ -35,8 +35,10 @@
 <% else %>
   <h3 class="text-center">No halls!</h3>
 <% end %>
-<%= link_to "Add new hall", new_cinema_hall_path(@cinema) if can? :new, Hall %>
+<%= link_to (fa_icon "plus", text: "Add new hall"),
+  new_cinema_hall_path(@cinema) if can? :new, Hall %>
 
 <br><br>
-<%= link_to 'Edit', edit_cinema_path(@cinema) if can? :edit, @cinema %><br>
-<%= link_to 'Back', root_path %>
+<%= link_to (fa_icon "pencil-square-o", text: 'Edit cinema'),
+  edit_cinema_path(@cinema) if can? :edit, @cinema %><br>
+<%= link_to (fa_icon "arrow-left", text: 'Back'), root_path %>

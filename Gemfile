@@ -53,6 +53,8 @@ gem 'money-rails', '~> 1.8'
 # For pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+# For icons
+gem "font-awesome-rails"
 # -- My -- end ----------------------------
 
 group :development, :test do

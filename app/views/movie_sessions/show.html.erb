@@ -51,7 +51,7 @@
 <% end %>
 
 <br><br>
-<%= link_to 'Edit', 
+<%= link_to (fa_icon "pencil-square-o", text: 'Edit'), 
   edit_cinema_hall_movie_session_path(@cinema, @hall, @movie_session) if 
   can? :edit, @movie_session %><br>
-<%= link_to 'Back', root_path %>
+<%= link_to (fa_icon "arrow-left", text: 'Back'), root_path %>

@@ -31,6 +31,7 @@
     </div>
   </div>
   <% if can? :new, Movie %>
-    <%= link_to 'Add new movie', new_movie_path %>
+    <%= link_to (fa_icon "plus-circle", text: 'Add new movie'), 
+      new_movie_path %>
   <% end %>
 </div>

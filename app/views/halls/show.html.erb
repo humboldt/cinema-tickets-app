@@ -24,7 +24,8 @@
             <%= movie_session.dates %>
           </td>
           <td>
-            <%= link_to 'Edit session', edit_cinema_hall_movie_session_path(
+            <%= link_to (fa_icon "pencil", text: 'Edit session'),
+              edit_cinema_hall_movie_session_path(
               @cinema, @hall, movie_session) if can? :edit, movie_session %>
           </td>
         </tr>
@@ -34,11 +35,11 @@
 <% else %>
   <h3 class="text-center">No sessions!</h3>
 <% end %>
-<%= link_to "Add new session", 
+<%= link_to (fa_icon "plus", text: "Add new session"), 
   new_cinema_hall_movie_session_path(@cinema, @hall) if 
   can? :new, MovieSession %>
 
 <br><br>
-<%= link_to 'Edit', edit_cinema_hall_path(@cinema, @hall) if 
-  can? :edit, @hall %><br>
-<%= link_to 'Back', @cinema %>
+<%= link_to (fa_icon "pencil-square-o", text: 'Edit'), 
+  edit_cinema_hall_path(@cinema, @hall) if can? :edit, @hall %><br>
+<%= link_to (fa_icon "arrow-left", text: 'Back'), @cinema %>
