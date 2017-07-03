@@ -18,7 +18,8 @@
                 </td>
                 <% if can? :edit, Movie %>
                   <td>
-                    <%= link_to 'Edit movie', edit_movie_path(movie) %>
+                    <%= link_to (fa_icon "pencil", text: 'Edit movie'), 
+                      edit_movie_path(movie) %>
                   </td>
                 <% end %>
               </tr>
