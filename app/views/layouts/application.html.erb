@@ -36,6 +36,9 @@
         
         <div class="collapse navbar-collapse" id="navbarsExampleContainer">
           <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="color:white">
+              <%= link_to('All Movies', movies_path, :class => "nav-link") %>
+            </li>
             <% if user_signed_in? %>
               <li class="nav-item active" style="color:white">
                 <% if current_user.admin_role? %>

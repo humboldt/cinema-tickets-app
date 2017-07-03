@@ -6,8 +6,7 @@
 </p>
 
 <p>
-  <strong>Picture url:</strong>
-  <%= @movie.picture_url %>
+  <%= image_tag @movie.picture_url, class: 'movie-logo' %>
 </p>
 
 <p>
@@ -16,5 +15,6 @@
 </p>
 
 
-<%= link_to 'Edit', edit_movie_path(@movie) if can? :edit, @movie %><br>
-<%= link_to 'Back', movies_path %>
+<%= link_to (fa_icon "pencil-square-o", text: 'Edit'), 
+  edit_movie_path(@movie) if can? :edit, @movie %><br>
+<%= link_to (fa_icon "arrow-left", text: 'Back'), movies_path %>
