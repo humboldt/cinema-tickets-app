@@ -6,12 +6,8 @@ class TicketsController < ApplicationController
   
   def reserve_ticket
     if seat_available?
-      ReservationTimerJob.set(wait: 30.seconds).perform_later(
-        @movie_session, params[:seat])
-      @movie_session.update(
-        seats: @movie_session.seats.merge!( {params[:seat] => "reserved"} ),
-        reserved_seats: @movie_session.reserved_seats.merge!( 
-          {params[:seat] => current_user.id} ))
+      start_reservation_timer
+      reserve_seats
       redirect_to cinema_hall_movie_session_url(@cinema, @hall, @movie_session, 
         seat: params[:seat])
     else
@@ -43,4 +39,17 @@ class TicketsController < ApplicationController
       return true
     end
   end
+  
+  def reserve_seats
+    @movie_session.update(
+      seats: @movie_session.seats.merge!( {params[:seat] => "reserved"} ),
+      reserved_seats: @movie_session.reserved_seats.merge!( 
+        {params[:seat] => current_user.id} ))
+  end
+  
+  def start_reservation_timer
+    ReservationTimerJob.set(wait: 30.seconds).perform_later(
+      @movie_session, params[:seat])
+  end
+  
 end
