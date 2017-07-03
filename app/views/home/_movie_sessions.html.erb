@@ -19,12 +19,13 @@
                   <%= movie_session.hall.name %>
                 </td>
                 <td>
-                  <%= image_tag(movie_session.movie.picture_url, class: "movie-logo") %>
+                  <%= image_tag(movie_session.movie.picture_url, 
+                    class: "movie-logo") %>
                 </td>
                 <td>
                   <%= movie_session.movie.title %>
                 </td>
-                <td>
+                <td style="max-width: 40em;">
                   <%= movie_session.movie.description %>
                 </td>              
               </tr>
