@@ -12,6 +12,7 @@
   vertical-align: middle;
   line-height: 3em;
   margin-bottom: 3px;
+  margin-right: 3px;
 }
 
 .seat-taken {
@@ -20,6 +21,10 @@
 
 .seat-reserved {
   background-color: #F1F36A;
+}
+
+.seat-available {
+  background-color: #FFFFFF;
 }
 
 .seat-taken-message {
