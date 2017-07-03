@@ -40,7 +40,7 @@ class HallsController < ApplicationController
   private
 
   def hall_params
-    params.require(:hall).permit(:name)
+    params.require(:hall).permit(:name, :seats_quantity)
   end
   
 end
