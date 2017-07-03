@@ -4,4 +4,8 @@ class MovieSession < ApplicationRecord
   serialize :seats, Hash
   serialize :reserved_seats, Hash
   monetize :seat_price_cents
+  
+  validates :dates, presence: true
+  validates :seat_price, presence: true
+  validates :movie, presence: true
 end
