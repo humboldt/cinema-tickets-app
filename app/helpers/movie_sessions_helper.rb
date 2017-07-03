@@ -5,8 +5,11 @@ module MovieSessionsHelper
     (1..@movie_session.hall.seats_quantity).each do |seat_number| 
       if @movie_session.seats["#{seat_number}"] == "taken" 
         seat_status_class = 'seat-taken' 
-      elsif @movie_session.seats["#{seat_number}"] == "reserved" 
-        seat_status_class = 'seat-reserved' 
+      elsif user_signed_in? && 
+        @movie_session.reserved_seats["#{seat_number}"] == current_user.id
+        seat_status_class = 'seat-reserved-by-me'
+      elsif @movie_session.seats["#{seat_number}"] == "reserved"
+        seat_status_class = 'seat-reserved'
       else 
         seat_status_class = 'seat-available' 
       end 
