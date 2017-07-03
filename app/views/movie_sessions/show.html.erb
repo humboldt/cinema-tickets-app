@@ -1,13 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Dates:</strong>
-  <%= @movie_session.dates %>
-</p>
-
-<p>
   <strong>Movie:</strong>
   <%= @movie_session.movie.title %>
+</p>
+
+<div class="row">
+  <div class="col-sm-3">
+    <p>
+      <%= image_tag @movie_session.movie.picture_url, class: 'movie-logo' %>
+    </p>
+  </div>
+  <div class="col-sm-9">
+    <p>
+      <%= @movie_session.movie.description %>
+    </p>
+  </div>
+</div>
+
+<p>
+  <strong>Date:</strong>
+  <%= @movie_session.dates %>
 </p>
 
 <% (1..@movie_session.hall.seats_quantity).each do |seat_number| %>
