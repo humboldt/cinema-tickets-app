@@ -30,6 +30,7 @@
     <% if @movie_session.seats[params[:seat]] == "taken" %>
       <p class="seat-taken-message">This seat is already taken!</p>
     <% elsif @movie_session.seats[params[:seat]] == "reserved" &&
+      user_signed_in? &&
       @movie_session.reserved_seats[params[:seat]] != current_user.id %>
       <p class="seat-reserved-message">This seat is currently reserved! 
       But it might be available shortly...</p>

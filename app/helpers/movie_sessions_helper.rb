@@ -28,6 +28,7 @@ module MovieSessionsHelper
       return (
         raw '<p class="seat-taken-message">This seat is already taken!</p>')
     elsif @movie_session.seats[params[:seat]] == "reserved" &&
+      user_signed_in? &&
       @movie_session.reserved_seats[params[:seat]] != current_user.id
       return (
         raw '<p class="seat-reserved-message">This seat is currently reserved!
