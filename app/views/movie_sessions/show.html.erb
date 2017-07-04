@@ -20,7 +20,7 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @movie_session.date %>
+  <%= @movie_session.date.strftime("%A at %R %B %d, %Y") %>
 </p>
 
 <%= show_all_seats %>

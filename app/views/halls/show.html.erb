@@ -21,7 +21,7 @@
               cinema_hall_movie_session_path(@cinema, @hall, movie_session) %>
           </td>          
           <td>
-            <%= movie_session.date %>
+            <%= movie_session.date.strftime("%A at %R %B %d, %Y") %>
           </td>
           <td>
             <%= link_to (fa_icon "pencil", text: 'Edit session'),
