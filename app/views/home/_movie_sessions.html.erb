@@ -8,7 +8,7 @@
             <% @movie_sessions.each do |movie_session| %>
               <tr>
                 <td>
-                  <%= link_to movie_session.dates, 
+                  <%= link_to movie_session.date, 
                     cinema_hall_movie_session_path(movie_session.hall.cinema,
                     movie_session.hall, movie_session) %>
                 </td>

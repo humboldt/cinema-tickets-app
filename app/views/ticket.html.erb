@@ -7,7 +7,7 @@
     <td>
       <p>See you at</p>
       <p><h3><strong><%= @movie_session.movie.title %></strong></h3></p>
-      <p>on <strong><%= @movie_session.dates %></strong></p>
+      <p>on <strong><%= @movie_session.date %></strong></p>
       <p>at <strong><%= @movie_session.hall.cinema.name %>, <%= @movie_session.hall.name %>,</strong> seat <strong>#<%= params[:seat] %></strong></p>
       <p>Address: <strong><%= @movie_session.hall.cinema.address %></strong></p>
       <p>Price: <strong><%= humanized_money_with_symbol @movie_session.seat_price %></strong></p>
