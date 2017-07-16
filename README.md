@@ -6,7 +6,7 @@ whole thing - if you feel like a God.
 ## Technology
 
 This app is built with ruby 2.4.1, rails 5.0.3 and utilizes Bootstrap 4 with FontAwesome icons for the web pages. 
-The layout is fully compatible with any screen size.
+The layout is fully compatible with any screen size. MySQL is used as a database.
  
 Some of the gems that were used:
 
