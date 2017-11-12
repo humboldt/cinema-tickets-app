@@ -57,6 +57,10 @@ a pdf file with all the required information, as shown on an image below.
 
 ![Seats](./ticket_example.png)
 
+## License
+
+MIT
+
 ## Authors
 
 * **Oleg Larkin** - *Initial work* - [krabique48](https://github.com/krabique48) (krabique48@gmail.com)
